@@ -98,7 +98,7 @@ following fields:
 
 #### class `ShareMetadata`
 
-- `type` {Number} type of this message. Can be {news|text|imageUrl|imageFile|imageResource|video|audio|file}
+- `type` {Number} type of this message. Can be {news|text|imageUrl|imageFile|imageResource|video|audio|file|miniProgram}
 - `thumbImage` {String} Thumb image of the message, which can be a uri or a resource id.
 - `description` {String} The description about the sharing.
 - `webpageUrl` {String} Required if type equals `news`. The webpage link to share.
@@ -107,6 +107,9 @@ following fields:
 - `musicUrl` {String} Provide a remote music if type equals `audio`.
 - `filePath` {String} Provide a local file if type equals `file`.
 - `fileExtension` {String} Provide the file type if type equals `file`.
+- `miniprogramType` {Integer} 正式版:0，测试版:1，体验版:2.
+- `userName` {String} 小程序原始id，不是小程序的appid.
+- `path` {String} 小程序页面路径.
 
 #### shareToTimeline(message)
 
