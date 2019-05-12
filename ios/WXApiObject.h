@@ -56,6 +56,14 @@ enum WXMPWebviewType {
     WXMPWebviewType_Ad = 0,        /**< 广告网页 **/
 };
 
+/*! @brief 分享小程序类型
+ *
+ */
+typedef NS_ENUM(NSUInteger, WXMiniProgramType){
+    WXMiniProgramTypeRelease = 0,       //**< 正式版  */
+    WXMiniProgramTypeTest = 1,        //**< 开发版  */
+    WXMiniProgramTypePreview = 2,         //**< 体验版  */
+};
 
 /*! @brief 应用支持接收微信的文件类型
  *
@@ -779,6 +787,27 @@ typedef NS_ENUM(UInt64, enAppSupportContentFlag)
 
 @end
 
+@interface WXMiniProgramObject : NSObject
+
+/*! @brief WXMiniProgramObject对象
+ *
+ * @note 返回的WXMiniProgramObject对象是自动释放的
+ */
++(WXMiniProgramObject *) object;
+
+@property (nonatomic, strong) NSString *webpageUrl; //低版本网页链接
+
+@property (nonatomic, strong) NSString *userName;   //小程序username
+
+@property (nonatomic, strong) NSString *path;       //小程序页面的路径
+
+@property (nonatomic, strong) NSData *hdImageData;   // 小程序新版本的预览图 128k
+
+@property (nonatomic, assign) BOOL withShareTicket;   //是否使用带 shareTicket 的转发
+
+@property (nonatomic, assign) WXMiniProgramType miniProgramType;  // 分享小程序的版本（正式，开发，体验）
+
+@end
 
 #pragma mark - WXTextObject
 /*! @brief 多媒体消息中包含的文本数据对象
